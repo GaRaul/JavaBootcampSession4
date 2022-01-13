@@ -42,7 +42,10 @@ public class MetodosArraysApp1 {
 			break;
 		default:
 			System.out.println("Error al introducir los datos");
+			break;
 		}
+		
+		System.out.println("El area es: " + resultado);
 	}
 	
 	public static double areaCirculo(double radio) {
