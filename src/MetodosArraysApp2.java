@@ -1,41 +1,72 @@
 import java.util.Scanner;
 
 public class MetodosArraysApp2 {
-	static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		//  Crea una aplicación que nos genere una cantidad de números enteros aleatorios que
-//		nosotros le pasaremos por teclado. Crea un método donde pasamos como parámetros entre
-//		que números queremos que los genere, podemos pedirlas por teclado antes de generar los
-//		números. Este método devolverá un número entero aleatorio. Muestra estos números por
-//		pantalla.
+		Scanner teclado = new Scanner(System.in);
+		// Crea una aplicación que nos calcule el área de un circulo, cuadrado o triangulo. Pediremos
+//		que figura queremos calcular su área y según lo introducido pedirá los valores necesarios
+//		para calcular el área. Crea un método por cada figura para calcular cada área, este devolverá
+//		un número real. Muestra el resultado por pantalla.
+//		Aquí te mostramos que necesita cada figura:
+//		•
+//		•
+//		•
+//		Circulo: (radio^2)*PI
+//		Triangulo: (base * altura) / 2
+//		Cuadrado: lado * lado
 		
-		System.out.println("Introduce la cantidad de numeros aleatorios que quieres generar");
-		int cantidad = teclado.nextInt();
+		System.out.println("Introduce la figura de la que quieres saber el area");
+		System.out.println("[Circulo]\n[Triangulo]\n[Cuadrado]");
+		String figura = teclado.next();
 		
-		System.out.println("Rango\nMinimo:");
-		int min = teclado.nextInt();
-		System.out.println("Maximo:");
-		int max = teclado.nextInt();
+		double resultado = 0;
 		
-		int numeros[] = new int[cantidad];
-		
-		for (int i = 0; i < numeros.length; i++) {
-			numeros[i] = generarNum(min, max);
-			System.out.println(numeros[i]);
+		switch (figura) {
+		case "Circulo":
+			System.out.println("Introduce el radio");
+			double radio = teclado.nextDouble();
+			resultado = areaCirculo(radio);
+			break;
+		case "Triangulo":
+			System.out.println("Introduce la base");
+			double base = teclado.nextDouble();
+			System.out.println("introduce la altura");
+			double altura = teclado.nextDouble();
+			resultado = areaTriangulo(base, altura);
+			break;
+		case "Cuadrado":
+			System.out.println("Introduce el lado");
+			double lado = teclado.nextDouble();
+			resultado = areaCuadrado(lado);
+			break;
+		default:
+			System.out.println("Error al introducir los datos");
+			break;
 		}
 		
+		System.out.println("El area es: " + resultado);
 	}
 	
-	public static int generarNum(int min, int max) {
-		int num;
-		int rango;
+	public static double areaCirculo(double radio) {
 		
-		rango = (max - min) + 1;
+		double resultado = Math.pow(radio, 2)*Math.PI;
 		
-		num = (int)(Math.random() * rango) + min;
+		return resultado;
+	}
+	
+	public static double areaTriangulo(double base, double altura) {
 		
-		return num;
+		double resultado = (base * altura) / 2;
+		
+		return resultado;
+	}
+	
+	public static double areaCuadrado(double lado) {
+		
+		double resultado = lado * lado;
+		
+		return resultado;
 	}
 
 }
