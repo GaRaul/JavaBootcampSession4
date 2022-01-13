@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class MetodosArrays1 {
+public class MetodosArrays3 {
 	static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
